@@ -1,13 +1,14 @@
 {
-    "friendships": [
-        {   "id": 1, 
-            "name": "JJ", 
-            "message": "jj is the best friend in my world <3" 
-        },
-        {
-            "id": 2,
-            "name": "Petch",
-            "message": "Happy Birthday Petch"
-        }
-    ]
+  "friendships": [
+    {
+      "name": "jj",
+      "message": "jj is the best",
+      "id": 3
+    },
+    {
+      "name": "ผลประกอบการ",
+      "message": "วันนี้ผมทำ delete get post เสณ็จแล้วครับ",
+      "id": 4
+    }
+  ]
 }

@@ -9,20 +9,49 @@
       <div>
         <div class="write-name">
           <label for="name">Name</label>
-          <input type="text" id="name" autocomplete="off" />
+          <input v-model="name" type="text" id="name" autocomplete="off" />
         </div>
       </div>
       <div class="write-message">
         <label for="message">Message</label>
-        <textarea rows="4" id="message"></textarea>
+        <textarea v-model="message" rows="4" id="message"></textarea>
       </div>
-      <button class="btn">Submit</button>
+      <button class="btn" @click.prevent="submitfriendship">Submit</button>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+const axios = require("axios");
+export default {
+  
+  data(){
+    return{
+      name: '',
+      message: '',
+      url:'http://localhost:3000/friendships'
+    }
+  },
+
+  methods:{
+    submitfriendship(){
+      axios.post(this.url,{
+        name: this.name,
+        message: this.message
+      }).then((response) => {
+        return response.data
+      }).then(() => {
+        this.name = ''
+        this.message= ''
+        setTimeout(() => {
+          this.$router.push('List')
+        }, 1000);
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+  }
+};
 </script>
 
 <style scoped>

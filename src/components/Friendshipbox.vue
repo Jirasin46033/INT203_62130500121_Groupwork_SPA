@@ -22,7 +22,7 @@
           <!-- card footer -->
           <div class="card-footer">
             <!-- button link -->
-            <button class="btn-edit">Edit</button>
+            <router-link :to="{ name: 'Edit', params: { slug: f.id }}"><button class="btn-edit">Edit</button></router-link>
             <button class="btn-delete" @click="$emit('delete',f.id)">
               Delete
             </button>
@@ -36,7 +36,7 @@
 export default {
     props:['friendship'],
 
-    emits:['delete'],
+    emits:['delete','edit'],
 
     methods: {
         // delete(id){
